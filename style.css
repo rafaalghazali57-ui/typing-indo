@@ -1,96 +1,109 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0b0f17;
-  color: #cbd5e1;
+  font-family: monospace;
+  background: #0f172a;
+  color: white;
 }
 
-.topbar {
-  text-align: center;
+.layout {
+  display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  background: #020617;
+  height: 100vh;
+  padding: 10px;
+}
+
+.lesson-item {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.lesson-item.active {
+  background: #38bdf8;
+  color: black;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
   padding: 20px;
-  font-size: 20px;
-  color: #38bdf8;
 }
 
 .stats {
+  margin-bottom: 10px;
   display: flex;
-  justify-content: center;
-  gap: 40px;
-  font-size: 18px;
-  margin-bottom: 20px;
+  gap: 20px;
 }
 
-.text-box {
-  width: 60%;
-  margin: auto;
-  background: #111827;
+#text {
+  background: #1e293b;
   padding: 20px;
   border-radius: 10px;
-  line-height: 1.8;
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 2px;
+  line-height: 1.6;
 }
 
-textarea {
-  display: block;
-  margin: 20px auto;
-  width: 60%;
-  height: 120px;
-  background: #020617;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 15px;
-  font-size: 18px;
-}
-
-.controls {
-  text-align: center;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  background: #38bdf8;
-  color: black;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.correct {
-  color: #22c55e;
-}
-
-.wrong {
-  color: #ef4444;
-}
+/* TEXT STATE */
+.correct { color: #22c55e; }
+.wrong { color: #ef4444; }
 
 .current {
   border-bottom: 2px solid #38bdf8;
 }
 
-.keyboard-wrapper {
-  position: relative;
-  width: 700px;
-  margin: 40px auto;
+/* INPUT */
+textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 18px;
+  background: #020617;
+  color: white;
+  border: none;
 }
 
+/* KEYBOARD */
 .keyboard {
-  width: 100%;
-  border-radius: 20px;
+  margin-top: 20px;
 }
 
-.hands {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0.8;
-  pointer-events: none;
-  transition: 0.1s;
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
 }
 
-/* animasi tekan */
-.key-press {
-  transform: translateY(5px);
+.key {
+  background: #334155;
+  margin: 3px;
+  padding: 12px;
+  border-radius: 6px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.wide {
+  min-width: 80px;
+}
+
+.space {
+  min-width: 300px;
+}
+
+.active {
+  background: #38bdf8;
+  color: black;
+}
+
+.next {
+  background: yellow;
+  color: black;
 }

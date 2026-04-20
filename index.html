@@ -2,34 +2,35 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Typing Indo</title>
+  <title>Typing Indo Pro</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="topbar">
-  <h1>TypingIndo</h1>
-</div>
+<div class="layout">
 
-<div class="stats">
-  <div>WPM <span id="wpm">0</span></div>
-  <div>Time <span id="time">0</span></div>
-</div>
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="lessonList"></div>
 
-<div class="text-box" id="text"></div>
+  <!-- MAIN -->
+  <div class="main">
+    <h2 id="lessonTitle"></h2>
 
-<textarea id="input" placeholder="mulai mengetik di sini..."></textarea>
+    <div class="stats">
+      <span>WPM: <b id="wpm">0</b></span>
+      <span>Time: <b id="time">0</b></span>
+      <span>Akurasi: <b id="accuracy">100%</b></span>
+    </div>
 
+    <div id="text"></div>
 
+    <textarea id="input" placeholder="mulai mengetik..."></textarea>
 
-<div class="keyboard-wrapper">
-  <img src="keyboard.png" class="keyboard">
+    <!-- KEYBOARD -->
+    <div class="keyboard" id="keyboard"></div>
 
-  <img src="hands.png" class="hands" id="hands">
-</div>
+  </div>
 
-<div class="controls">
-  <button onclick="startTest()">restart</button>
 </div>
 
 <script src="script.js"></script>
