@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0b0f17;
+  color: #cbd5e1;
+}
+
+.topbar {
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  color: #38bdf8;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.text-box {
+  width: 60%;
+  margin: auto;
+  background: #111827;
+  padding: 20px;
+  border-radius: 10px;
+  line-height: 1.8;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+textarea {
+  display: block;
+  margin: 20px auto;
+  width: 60%;
+  height: 120px;
+  background: #020617;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.controls {
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: #38bdf8;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.correct {
+  color: #22c55e;
+}
+
+.wrong {
+  color: #ef4444;
+}
+
+.current {
+  border-bottom: 2px solid #38bdf8;
+}
+
+.keyboard-wrapper {
+  position: relative;
+  width: 700px;
+  margin: 40px auto;
+}
+
+.keyboard {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.hands {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.8;
+  pointer-events: none;
+  transition: 0.1s;
+}
+
+/* animasi tekan */
+.key-press {
+  transform: translateY(5px);
+}

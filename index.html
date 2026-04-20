@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Typing Indo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <h1>TypingIndo</h1>
+</div>
+
+<div class="stats">
+  <div>WPM <span id="wpm">0</span></div>
+  <div>Time <span id="time">0</span></div>
+</div>
+
+<div class="text-box" id="text"></div>
+
+<textarea id="input" placeholder="mulai mengetik di sini..."></textarea>
+
+
+
+<div class="keyboard-wrapper">
+  <img src="keyboard.png" class="keyboard">
+
+  <img src="hands.png" class="hands" id="hands">
+</div>
+
+<div class="controls">
+  <button onclick="startTest()">restart</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
