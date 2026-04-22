@@ -14,11 +14,72 @@ let mistakes = 0;
 
 /* LESSON */
 const lessons = [
-  { title: "Home Row", text: "asdf jkl; asdf jkl;" },
-  { title: "Tambah G & H", text: "asdfg hjkl asdfg hjkl" },
-  { title: "Baris Atas", text: "qwer uiop qwer uiop" },
-  { title: "Baris Bawah", text: "zxcv nm zxcv nm" },
-  { title: "Kalimat", text: "saya belajar mengetik dengan cepat" }
+
+  /* ================= DASAR ================= */
+  { title: "Home Row 1", text: "asdf jkl;" },
+  { title: "Home Row 2", text: "asdf jkl; asdf jkl;" },
+  { title: "Home Row 3", text: "as as df df jk jk l;" },
+  { title: "Home Row 4", text: "asdf asdf jkl; jkl;" },
+
+  /* ================= TAMBAH G H ================= */
+  { title: "Tambah G H 1", text: "asdfg hjkl" },
+  { title: "Tambah G H 2", text: "gag hag dag fag" },
+  { title: "Tambah G H 3", text: "asdfg hjkl asdfg hjkl" },
+
+  /* ================= BARIS ATAS ================= */
+  { title: "Baris Atas 1", text: "qwer uiop" },
+  { title: "Baris Atas 2", text: "qwe rty uio p" },
+  { title: "Baris Atas 3", text: "qwerty uiop qwerty uiop" },
+
+  /* ================= BARIS BAWAH ================= */
+  { title: "Baris Bawah 1", text: "zxcv nm" },
+  { title: "Baris Bawah 2", text: "zxc vbn nm" },
+  { title: "Baris Bawah 3", text: "zxcvbnm zxcvbnm" },
+
+  /* ================= HURUF CAMPUR ================= */
+  { title: "Huruf Campur 1", text: "asdf qwer zxcv" },
+  { title: "Huruf Campur 2", text: "qaz wsx edc rfv tgb" },
+
+  /* ================= KATA PENDEK ================= */
+  { title: "Kata 1", text: "saya makan nasi" },
+  { title: "Kata 2", text: "ibu pergi ke pasar" },
+  { title: "Kata 3", text: "dia belajar di sekolah" },
+  { title: "Kata 4", text: "kami bermain bola" },
+
+  /* ================= KATA MENENGAH ================= */
+  { title: "Kata Menengah 1", text: "belajar mengetik setiap hari" },
+  { title: "Kata Menengah 2", text: "latihan membuat kita lebih cepat" },
+  { title: "Kata Menengah 3", text: "komputer digunakan untuk belajar" },
+
+  /* ================= KALIMAT ================= */
+  { title: "Kalimat 1", text: "saya belajar mengetik dengan cepat" },
+  { title: "Kalimat 2", text: "latihan setiap hari membuat kita lebih baik" },
+  { title: "Kalimat 3", text: "mengetik tanpa melihat keyboard adalah tujuan utama" },
+
+  /* ================= PARAGRAF ================= */
+  { title: "Paragraf 1", text: "saya belajar mengetik setiap hari agar bisa mengetik lebih cepat dan akurat tanpa melihat keyboard" },
+  { title: "Paragraf 2", text: "latihan mengetik membantu meningkatkan produktivitas terutama saat mengerjakan tugas di komputer" },
+
+  /* ================= HURUF KAPITAL ================= */
+  { title: "Kapital 1", text: "Saya Belajar Mengetik" },
+  { title: "Kapital 2", text: "Indonesia Adalah Negara Yang Indah" },
+
+  /* ================= ANGKA ================= */
+  { title: "Angka 1", text: "12345 67890" },
+  { title: "Angka 2", text: "2026 adalah tahun sekarang" },
+
+  /* ================= SIMBOL ================= */
+  { title: "Simbol 1", text: "! @ # $ % ^ & * ( )" },
+  { title: "Simbol 2", text: "? , . ; : - _ = +" },
+
+  /* ================= CAMPURAN ================= */
+  { title: "Campuran 1", text: "Saya mengetik 100 kata dalam 1 menit!" },
+  { title: "Campuran 2", text: "Belajar typing itu seru dan bermanfaat." },
+
+  /* ================= ADVANCED ================= */
+  { title: "Advanced 1", text: "keterampilan mengetik cepat sangat berguna di era digital modern ini" },
+  { title: "Advanced 2", text: "latihan konsisten akan meningkatkan kecepatan dan akurasi secara signifikan" }
+
 ];
 
 let currentLesson = 0;
