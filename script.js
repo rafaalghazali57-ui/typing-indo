@@ -11,89 +11,80 @@ let time = 0;
 let timer;
 let started = false;
 let mistakes = 0;
+let currentLesson = 0;
 
-/* LESSON */
+/* ================= LESSON ================= */
 const lessons = [
 
-  /* ================= DASAR ================= */
-  { title: "Home Row 1", text: "asdf jkl;" },
-  { title: "Home Row 2", text: "asdf jkl; asdf jkl;" },
-  { title: "Home Row 3", text: "as as df df jk jk l;" },
-  { title: "Home Row 4", text: "asdf asdf jkl; jkl;" },
+  // DASAR
+  { title: "Home Row", text: "asdf jkl;" },
+  { title: "Latihan G H", text: "asdfg hjkl" },
+  { title: "Baris Atas", text: "qwer uiop" },
+  { title: "Baris Bawah", text: "zxcv nm" },
 
-  /* ================= TAMBAH G H ================= */
-  { title: "Tambah G H 1", text: "asdfg hjkl" },
-  { title: "Tambah G H 2", text: "gag hag dag fag" },
-  { title: "Tambah G H 3", text: "asdfg hjkl asdfg hjkl" },
+  // KALIMAT
+  { title: "Kalimat", text: "saya belajar mengetik dengan cepat" },
 
-  /* ================= BARIS ATAS ================= */
-  { title: "Baris Atas 1", text: "qwer uiop" },
-  { title: "Baris Atas 2", text: "qwe rty uio p" },
-  { title: "Baris Atas 3", text: "qwerty uiop qwerty uiop" },
+  // SIMBOL
+  { title: "Simbol", text: "! @ # $ % ^ & * ( )" },
 
-  /* ================= BARIS BAWAH ================= */
-  { title: "Baris Bawah 1", text: "zxcv nm" },
-  { title: "Baris Bawah 2", text: "zxc vbn nm" },
-  { title: "Baris Bawah 3", text: "zxcvbnm zxcvbnm" },
+  // MAHIR
+  { title: "Mahir 1", text: "keterampilan mengetik cepat sangat penting dalam dunia digital saat ini" },
 
-  /* ================= HURUF CAMPUR ================= */
-  { title: "Huruf Campur 1", text: "asdf qwer zxcv" },
-  { title: "Huruf Campur 2", text: "qaz wsx edc rfv tgb" },
+  // PARAGRAF
+  { title: "Paragraf", text: "saya belajar mengetik setiap hari agar lebih cepat dan akurat tanpa melihat keyboard" },
 
-  /* ================= KATA PENDEK ================= */
-  { title: "Kata 1", text: "saya makan nasi" },
-  { title: "Kata 2", text: "ibu pergi ke pasar" },
-  { title: "Kata 3", text: "dia belajar di sekolah" },
-  { title: "Kata 4", text: "kami bermain bola" },
+  // CERITA PANJANG
+  {
+    title: "Legenda Tangkuban Perahu",
+    text: "pada zaman dahulu di tanah sunda hiduplah seorang pemuda bernama sangkuriang yang tidak mengetahui bahwa wanita yang ia temui adalah ibunya sendiri yaitu dayang sumbi setelah dewasa sangkuriang jatuh cinta kepada dayang sumbi dan berniat menikahinya namun dayang sumbi menyadari hal tersebut dan berusaha menggagalkan pernikahan itu dengan memberikan syarat yang mustahil yaitu membuat danau dan perahu dalam satu malam dengan kesaktiannya sangkuriang hampir berhasil namun dayang sumbi menggagalkan usaha itu sehingga sangkuriang marah dan menendang perahu tersebut hingga terbalik dan menjadi gunung yang sekarang dikenal sebagai tangkuban perahu"
+  },
 
-  /* ================= KATA MENENGAH ================= */
-  { title: "Kata Menengah 1", text: "belajar mengetik setiap hari" },
-  { title: "Kata Menengah 2", text: "latihan membuat kita lebih cepat" },
-  { title: "Kata Menengah 3", text: "komputer digunakan untuk belajar" },
+  {
+    title: "Legenda Danau Toba",
+    text: "di sebuah desa hiduplah seorang pria yang suatu hari menangkap ikan ajaib yang berubah menjadi wanita cantik mereka menikah dan memiliki seorang anak namun sang ayah melanggar janji untuk tidak mengungkap asal usul istrinya sehingga sang ibu kembali menjadi ikan dan air meluap hingga membentuk danau luas yang dikenal sebagai danau toba"
+  },
 
-  /* ================= KALIMAT ================= */
-  { title: "Kalimat 1", text: "saya belajar mengetik dengan cepat" },
-  { title: "Kalimat 2", text: "latihan setiap hari membuat kita lebih baik" },
-  { title: "Kalimat 3", text: "mengetik tanpa melihat keyboard adalah tujuan utama" },
+  {
+    title: "Keajaiban Raja Ampat",
+    text: "raja ampat adalah salah satu keindahan alam indonesia yang terkenal dengan lautnya yang jernih serta keanekaragaman hayati yang luar biasa banyak wisatawan datang untuk menikmati keindahan bawah lautnya yang menakjubkan"
+  },
 
-  /* ================= PARAGRAF ================= */
-  { title: "Paragraf 1", text: "saya belajar mengetik setiap hari agar bisa mengetik lebih cepat dan akurat tanpa melihat keyboard" },
-  { title: "Paragraf 2", text: "latihan mengetik membantu meningkatkan produktivitas terutama saat mengerjakan tugas di komputer" },
+  {
+    title: "Cerita Nusantara Panjang",
+    text: "indonesia adalah negara yang kaya akan budaya dan keindahan alam dari sabang sampai merauke terdapat berbagai suku bahasa dan tradisi yang menjadikan indonesia sangat istimewa kekayaan ini harus dijaga dan dilestarikan"
+  },
 
-  /* ================= HURUF KAPITAL ================= */
-  { title: "Kapital 1", text: "Saya Belajar Mengetik" },
-  { title: "Kapital 2", text: "Indonesia Adalah Negara Yang Indah" },
-
-  /* ================= ANGKA ================= */
-  { title: "Angka 1", text: "12345 67890" },
-  { title: "Angka 2", text: "2026 adalah tahun sekarang" },
-
-  /* ================= SIMBOL ================= */
-  { title: "Simbol 1", text: "! @ # $ % ^ & * ( )" },
-  { title: "Simbol 2", text: "? , . ; : - _ = +" },
-
-  /* ================= CAMPURAN ================= */
-  { title: "Campuran 1", text: "Saya mengetik 100 kata dalam 1 menit!" },
-  { title: "Campuran 2", text: "Belajar typing itu seru dan bermanfaat." },
-
-  /* ================= ADVANCED ================= */
-  { title: "Advanced 1", text: "keterampilan mengetik cepat sangat berguna di era digital modern ini" },
-  { title: "Advanced 2", text: "latihan konsisten akan meningkatkan kecepatan dan akurasi secara signifikan" }
+  { title: "Palung mariana",
+    text:"Palung Mariana adalah titik terdalam di muka bumi yang terletak di barat Samudra Pasifik, sebelah timur Kepulauan Mariana. Terbentuk akibat subduksi lempeng Pasifik di bawah lempeng Filipina sekitar 180 juta tahun lalu, palung berbentuk huruf V ini memiliki kedalaman ekstrem mencapai kurang lebih 11.000 meter (Challenger Deep). Kondisi di dasarnya gelap total, bersuhu beku (1-4 C), dan memiliki tekanan 1.000 kali lipat dari tekanan atmosfer di permukaan."
+  }
 
 ];
 
-let currentLesson = 0;
-
-/* KEYBOARD LAYOUT */
+/* ================= KEYBOARD ================= */
 const keyboardLayout = [
-  ["1","2","3","4","5","6","7","8","9","0","-","=","Backspace"],
-  ["q","w","e","r","t","y","u","i","o","p","[","]","\\"],
-  ["a","s","d","f","g","h","j","k","l",";","'","Enter"],
-  ["Shift","z","x","c","v","b","n","m",",",".","/","Shift"],
+  [
+    { key: "1", shift: "!" },
+    { key: "2", shift: "@" },
+    { key: "3", shift: "#" },
+    { key: "4", shift: "$" },
+    { key: "5", shift: "%" },
+    { key: "6", shift: "^" },
+    { key: "7", shift: "&" },
+    { key: "8", shift: "*" },
+    { key: "9", shift: "(" },
+    { key: "0", shift: ")" },
+    { key: "-", shift: "_" },
+    { key: "=", shift: "+" },
+    "Backspace"
+  ],
+  ["q","w","e","r","t","y","u","i","o","p"],
+  ["a","s","d","f","g","h","j","k","l","Enter"],
+  ["Shift","z","x","c","v","b","n","m","Shift"],
   ["Space"]
 ];
 
-/* GENERATE KEYBOARD */
+/* ================= GENERATE KEYBOARD ================= */
 keyboardLayout.forEach(row => {
   const rowEl = document.createElement("div");
   rowEl.classList.add("keyboard-row");
@@ -101,11 +92,19 @@ keyboardLayout.forEach(row => {
   row.forEach(key => {
     const keyEl = document.createElement("div");
     keyEl.classList.add("key");
-    keyEl.innerText = key;
 
-    keyEl.dataset.key = key.toLowerCase();
+    if (typeof key === "object") {
+      keyEl.innerHTML = `
+        <span class="top">${key.shift}</span>
+        <span class="bottom">${key.key}</span>
+      `;
+      keyEl.dataset.key = key.key;
+    } else {
+      keyEl.innerHTML = `<span class="bottom">${key}</span>`;
+      keyEl.dataset.key = key.toLowerCase();
+    }
 
-    if (key === "Backspace" || key === "Shift" || key === "Enter")
+    if (["Backspace","Shift","Enter"].includes(key))
       keyEl.classList.add("wide");
 
     if (key === "Space")
@@ -117,39 +116,36 @@ keyboardLayout.forEach(row => {
   keyboardEl.appendChild(rowEl);
 });
 
-/* SIDEBAR */
-lessons.forEach((lesson, index) => {
+/* ================= SIDEBAR ================= */
+lessons.forEach((lesson, i) => {
   const div = document.createElement("div");
   div.innerText = lesson.title;
   div.classList.add("lesson-item");
 
-  div.onclick = () => loadLesson(index);
+  div.onclick = () => loadLesson(i);
 
   lessonList.appendChild(div);
 });
 
-/* LOAD LESSON */
-function loadLesson(index) {
-  currentLesson = index;
-  const lesson = lessons[index];
-
-  document.getElementById("lessonTitle").innerText = lesson.title;
-  text = lesson.text;
+/* ================= LOAD LESSON ================= */
+function loadLesson(i) {
+  currentLesson = i;
+  text = lessons[i].text;
+  document.getElementById("lessonTitle").innerText = lessons[i].title;
 
   renderText();
   inputEl.value = "";
-
   highlightLesson();
 }
 
-/* SIDEBAR ACTIVE */
+/* ================= HIGHLIGHT SIDEBAR ================= */
 function highlightLesson() {
   document.querySelectorAll(".lesson-item").forEach((el, i) => {
     el.classList.toggle("active", i === currentLesson);
   });
 }
 
-/* RENDER TEXT */
+/* ================= RENDER TEXT ================= */
 function renderText() {
   textEl.innerHTML = "";
 
@@ -163,7 +159,7 @@ function renderText() {
   });
 }
 
-/* TIMER */
+/* ================= TIMER ================= */
 function startTimer() {
   timer = setInterval(() => {
     time++;
@@ -172,7 +168,7 @@ function startTimer() {
   }, 1000);
 }
 
-/* INPUT */
+/* ================= INPUT ================= */
 inputEl.addEventListener("input", () => {
   if (!started) {
     started = true;
@@ -204,32 +200,29 @@ inputEl.addEventListener("input", () => {
 
   if (inputEl.value === text) {
     clearInterval(timer);
-
     setTimeout(() => nextLesson(), 1000);
   }
 });
 
-/* WPM */
+/* ================= WPM ================= */
 function updateWPM() {
   const words = inputEl.value.length / 5;
   const wpm = Math.round((words / time) * 60);
   wpmEl.innerText = wpm || 0;
 }
 
-/* ACCURACY */
+/* ================= ACCURACY ================= */
 function updateAccuracy() {
   const total = inputEl.value.length;
   const acc = total === 0 ? 100 : Math.round(((total - mistakes) / total) * 100);
   accEl.innerText = acc + "%";
 }
 
-/* NEXT KEY */
+/* ================= NEXT KEY ================= */
 function highlightNextKey() {
   const nextChar = text[inputEl.value.length];
 
-  document.querySelectorAll(".key").forEach(k => {
-    k.classList.remove("next");
-  });
+  document.querySelectorAll(".key").forEach(k => k.classList.remove("next"));
 
   if (!nextChar) return;
 
@@ -240,26 +233,30 @@ function highlightNextKey() {
   if (el) el.classList.add("next");
 }
 
-/* KEY PRESS */
+/* ================= KEY PRESS ================= */
 document.addEventListener("keydown", (e) => {
   let key = e.key.toLowerCase();
-
   if (key === " ") key = "space";
 
   const el = document.querySelector(`[data-key="${key}"]`);
   if (el) el.classList.add("active");
+
+  if (e.shiftKey) {
+    document.querySelectorAll(".top").forEach(t => t.style.color = "#38bdf8");
+  }
 });
 
 document.addEventListener("keyup", (e) => {
   let key = e.key.toLowerCase();
-
   if (key === " ") key = "space";
 
   const el = document.querySelector(`[data-key="${key}"]`);
   if (el) el.classList.remove("active");
+
+  document.querySelectorAll(".top").forEach(t => t.style.color = "#94a3b8");
 });
 
-/* NEXT LESSON */
+/* ================= NEXT LESSON ================= */
 function nextLesson() {
   currentLesson++;
   if (currentLesson >= lessons.length) currentLesson = 0;
@@ -268,7 +265,7 @@ function nextLesson() {
   loadLesson(currentLesson);
 }
 
-/* RESET */
+/* ================= RESET ================= */
 function reset() {
   clearInterval(timer);
   inputEl.value = "";
@@ -281,5 +278,5 @@ function reset() {
   accEl.innerText = "100%";
 }
 
-/* INIT */
+/* ================= INIT ================= */
 loadLesson(0);
